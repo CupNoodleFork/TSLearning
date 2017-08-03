@@ -14,7 +14,12 @@ module.exports = {
                 test: /\.ts$/,
                 loader: 'ts-loader',
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.js$/,
+                loader: 'source-map-loader',
+                enforce: 'pre'
+            } 
         ]
     },
     resolve: {
@@ -23,6 +28,7 @@ module.exports = {
         ],
         extensions: [".ts", ".js", ".json", ".css"],
     },
+    devtool: "source-map",
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new htmlWebpackPlugin({

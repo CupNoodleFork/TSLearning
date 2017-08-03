@@ -1,7 +1,28 @@
-function sayHello(name: string) : string {
-    return 'Hello, ' + name;
+import { hello, hello2Person } from './modules/utils';
+import {Person, Student} from './modules/Person';
+
+let myStudent = new Student('h', '2', '3');
+
+class Animal {
+    constructor (public name: string) {}
+    hello() {
+        console.log(this.name);
+    }
 }
 
-let myName = 'Cheng 123';
+interface hhh {
+    name: string
+}
 
-console.log(sayHello(myName));
+class Rhino extends Animal {
+    constructor (name: string) {super(name)}
+}
+
+class Snake extends Animal {
+    constructor (name: string) {super(name)}
+    zzz() {
+        console.log('zzz');
+    }
+}
+
+let zoo = [new Rhino('rhino'), new Snake('snake')];
