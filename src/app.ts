@@ -1,28 +1,46 @@
-import { hello, hello2Person } from './modules/utils';
-import {Person, Student} from './modules/Person';
+ let itera = {
+    value: [1, 2, 3],
+    [Symbol.iterator]: function () {
+        const self = this;
+        let index = 0;
+        return {
+            next() {
+                if (index < self.value.length) {
+                    return {
+                        value: self.value[index++],
+                        done: false
+                    };
+                } else {
+                    return { value: undefined, done: true };
+                }
+            }
+        }
+    }
+}
+let c = [...itera];
+console.log(c);
 
-let myStudent = new Student('h', '2', '3');
+interface b1 {
+    name: string;
+    hhh: number;
+}
+interface b1 {
+    name: string;
+    book: string;
+    age: string;
+}
 
-class Animal {
-    constructor (public name: string) {}
-    hello() {
-        console.log(this.name);
+let b: b1;
+
+class Album {
+    label: Album.AlbumLabel;
+}
+namespace Album {
+    export class AlbumLabel { 
+        constructor(public label: string) {}
     }
 }
 
-interface hhh {
-    name: string
-}
-
-class Rhino extends Animal {
-    constructor (name: string) {super(name)}
-}
-
-class Snake extends Animal {
-    constructor (name: string) {super(name)}
-    zzz() {
-        console.log('zzz');
-    }
-}
-
-let zoo = [new Rhino('rhino'), new Snake('snake')];
+let a = new Album();
+a.label = new Album.AlbumLabel('123');
+console.log(a);

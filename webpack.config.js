@@ -37,6 +37,7 @@ module.exports = {
         })
     ],
     devServer: {
+        port: '9001',
         contentBase: path.join(__dirname, 'dist'), // boolean | string | array, static file location
         historyApiFallback: true, // true for index.html upon 404, object for multiple paths
         hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
